@@ -1,8 +1,4 @@
 
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="com.example.demo.entity.Account" %><%
-    Account account = (Account) request.getAttribute("account");
-%>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS</title>
@@ -14,10 +10,5 @@
     <p>Đăng kí thành công </p>
 </div>
 <div>Thông tin tài khoản</div>
-<div>Username: <%=account.getUserName()%></div>
-<div>Full Name: <%=account.getFullName()%></div>
-<div>Birthday: <%=account.getBirthday()%></div>
-<div>Email: <%=account.getEmail()%></div>
-<div>Phone: <%=account.getPhone()%></div>
 </body>
 </html>

@@ -1,6 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.Model.MySqlUserModel;
+import com.example.demo.Model.UserModel;
 import com.example.demo.entity.Account;
+import com.example.demo.entity.User;
 
 import java.io.*;
 import javax.servlet.DispatcherType;
@@ -22,23 +25,24 @@ public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       req.setCharacterEncoding("UTF-8");
-       resp.setContentType("type/html; character=UTF-8");
-       resp.setCharacterEncoding("UTF-8");
-       Account account = new Account();
-       String userName = req.getParameter("userName");
-       account.setUserName(userName);
-       String password = req.getParameter("password");
-       account.setPassword(password);
-       String fullName = req.getParameter("fullName");
-       account.setFullName(fullName);
-       String email = req.getParameter("email");
-       account.setEmail(email);
-       String phone = req.getParameter("phone");
-       account.setPhone(phone);
-       String birth = req.getParameter("birthday");
-       account.setBirthday(birth);
-       req.setAttribute("account", account);
-       req.getRequestDispatcher("/user/register-success.jsp").forward(req, resp);
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html;charset=UTF-8");
+        resp.setCharacterEncoding("UTF-8");
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+        String fullName = req.getParameter("fullName");
+        String email = req.getParameter("email");
+        String phone = req.getParameter("phone");
+        String birthday = (req.getParameter("birthday"));
+        Account account = new Account();
+        account.setUsername(username);
+        account.setPassword(password);
+        account.setFullName(fullName);
+        account.setEmail(email);
+        account.setPhone(phone);
+        account.setBirthday(birthday);
+        MySqlUserModel mySqlUserModel = new MySqlUserModel();
+        mySqlUserModel.save(account);
+        req.getRequestDispatcher("/user/register-success.jsp").forward(req, resp);
     }
 }

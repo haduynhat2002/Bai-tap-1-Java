@@ -1,22 +1,44 @@
 package com.example.demo.entity;
 
 public class Account {
-    private String userName;
+    private int id;
+    private String username;
     private String password;
     private String fullName;
     private String email;
     private String phone;
+    private int status;
     private String birthday;
 
     public Account() {
-        
-    }
-    public String getUserName() {
-        return userName;
+
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public Account(int id, String username, String password, String fullName, String email, String phone, int status, String birthday) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.fullName = fullName;
+        this.email = email;
+        this.phone = phone;
+        this.status = status;
+        this.birthday = birthday;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -51,20 +73,19 @@ public class Account {
         this.phone = phone;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     public String getBirthday() {
         return birthday;
     }
 
     public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
-    public Account(String userName, String password, String fullName, String email, String phone, String birthday) {
-        this.userName = userName;
-        this.password = password;
-        this.fullName = fullName;
-        this.email = email;
-        this.phone = phone;
         this.birthday = birthday;
     }
 }
